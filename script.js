@@ -74,18 +74,22 @@ const calcAgeArrow = (nascimento) => {
 };
 calcAgeArrow(1995);
 
+var primeiroNome = "Bilu Bilu Tetéia";
+
 const eu2 = {
-  nome: "Viniwonk",
+  primeiroNome: "Viniwonk",
   nascimento: 1995,
   calcAge2: function () {
     console.log(2058 - this.nascimento); // this aqui se refere a "eu"
   },
+  ola: () => {
+    console.log(`Olá ${this.primeiroNome}`); //não funcionará pois o THIS esta puxando 'nome' do escopo pai(window)
+  },
 };
-eu2.calcAge2();
+eu2.ola();
 
 const vinnieMoth = {
   nascimento: 2000,
 };
 vinnieMoth.calcAge2 = eu2.calcAge2; //pegando o this alheio
-
 vinnieMoth.calcAge2();
